@@ -1,23 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import Time from './Time';
+import './index.css';
+import State from './State';
+import Clock from './Clock';
+import Events from './Events';
+import Form from './Form';
+
+// const studentData = [
+//   { id: 1, name: "Aishwarya", degree: "BE"},
+//   { id: 2, name: "Jignesh", degree: "BE"},
+//   { id: 3, name: "Dipak", degree: "BE"}
+// ]
+
+// const newData = studentData.map( (value) => {
+//   return `My name is ${value.name}`;
+// })
+
+// console.log(newData);
+
+// console.log(studentData);
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Time />
+      <State />
+      <Clock />
+      <Events />
+      <Form />
     </div>
   );
 }
