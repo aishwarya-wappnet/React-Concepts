@@ -1,3 +1,11 @@
+# Concepts
+
+- Array destructuring and useState hook (counter) in src/State.jsx
+- Refresh Time onClick using useState hook in src/Time.jsx
+- Digital Clock in src/Clock.jsx
+- Handling Events in react src/Events.jsx (Events like onClick, onDoubleClick, onMouseLeave, onMouseEnter)
+- Form with complex multiple inputs, spread operator in src/Form.jsx  
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
