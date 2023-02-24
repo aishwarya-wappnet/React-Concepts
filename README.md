@@ -6,73 +6,57 @@
 - Handling Events in react src/Events.jsx (Events like onClick, onDoubleClick, onMouseLeave, onMouseEnter)
 - Form with complex multiple inputs, spread operator in src/Form.jsx  
 
-# Getting Started with Create React App
+# React Hooks
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+In functional components, hooks are everything.
 
-## Available Scripts
+A hook is a special function that lets you "hook into" React features.
 
-In the project directory, you can run:
+- Hooks are the new features introduced in the React 16.8 version.
+- It allows you to use state and other react features without writing a class. 
+- Hooks are the functions which "hook into" React state and lifecycle from function components
+- Hooks should always be used at the top level of the React functions.
+- Node version  6 or above. NPM version 5.2 or above.
+- It does not work inside class.
 
-### `npm start`
+## useState()
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The react useState hook allows us to track state in a function component. State generally refers to to data or properties that need to be tracking in an application. The useState Hook can be used to keep track of strings, numbers, booleans, arrays, objects, and any combination of these!
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The useState() hook return an array containing two values. The initial state and the function. You pass the initial state to this function and it returns a variable with the current state value (not necessarily the initial state) and another function to update this value.
 
-### `npm test`
+```
+// as useState returns a array containing two values, below we are destructuring the returned values from useState
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+const [name, setName] = useState('React') 
+console.log(useState());
 
-### `npm run build`
+// the below line will be printed in the console'
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+(2) [undefined, ƒ]
+0: undefined
+1: ƒ ()
+length: 2
+[[Prototype]]: Array(0)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+// you can access the first value of the useState as:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+console.log(useState(name)[0]); // will print 'React' here
+```
 
-### `npm run eject`
+To change the name on button click, say we have a button. And the function 'changeName' is called on onClick
+ ```
+ const changeName = () => {
+    setName('Vue');
+ }
+ ```
+ To toggle between states on click, we can modify the above function 'changeName' as:
+ ```
+ const changeName = () => {
+   let curName = name;
+   curName === 'React' ? setName('Vue') : setName('React');
+ }
+ ```
+ 
+ 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
