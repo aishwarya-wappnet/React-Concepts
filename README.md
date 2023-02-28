@@ -57,6 +57,64 @@ To change the name on button click, say we have a button. And the function 'chan
    curName === 'React' ? setName('Vue') : setName('React');
  }
  ```
+ ## useEffect()
  
+- The useEffect is used to perform side effects effects in your components. 
+- Some examples of side effects are: fetching data, directly updating the DOM, and timers.
+- useEffect accepts two arguments: function, an array (a dependency array). The second parameter is optional and should include all of the values that our side effects rely upon.
+- Look at the Clock component in src/Clock
+```
+const Clock = () => {
+const [currTime, setCurrTime] = useState(new Date().toLocalTimeString);
+
+useEffect(() => {
+    setTimeOut(() => {
+    setCurrTime(new Date().toLocalTimeString);
+    }, 1000)
+});
+
+return (
+    <>
+    { currTime }
+    </>
+)}
+```
+- useEffect runs on every render. So whenever the time changes, a render happens, which then triggers another effect. Also, there are several ways to control when side effect runs.
+-  We should always include a second parameter which accepts an array. We can optionally pass dependencies to useEffect in this array.
+- This array will check and see if a value has changed between renders. If so, it will execute our useEffect function again.
+- If you do not provide the dependencies array at all and only provide a function to useEffect, it will run after every render and we will have an infinite loop.
+- After the first render, useEffect will be run, state will be updated, which will cause a re-render, which will cause useEffect to run again, starting the process over again ad infinitum.
+- This is called an infinite loop and this effectively breaks our application.
+- If you are updating state within your useEffect, make sure to provide an empty dependencies array.
+- If you do not provide an empty array which is recommended to provided by default for any time that you use useEffect, this will cause the effect function to run once after the component has rendered the first time.
+- A common example for this is to fetch data.
+
+## Cleanup function in useEffect()
+
+- The final part of performing side effects properly in React is the effect cleanup function.
+- The cleanup functions are required to reduce memory leaks.
+- Timeouts, subscriptions, event listeners, and other effects that are no longer needed should be disposed/shut off.
+- If we are setting state using setInterval and that side effect is not cleaned up, when our component unmounts and we're no longer using it, the state is destroyed with the component – but the setInterval function will keep running. Eg in src/UseEffect2.
+```
+useEffect(() => {
+
+   let timer = setTimeout(() => {
+   setCtime(new Date().toLocaleTimeString());
+   }, 1000);
+   return () => clearTimeout(timer);
+   });
+   
+   return(
+   <>
+     <div>
+      <h1>{ ctime }</h1>
+     </div>
+   </>
+)
+```
+- The cleanup function will be called when the component is unmounted.
+- A common example of a component being unmounted is going to a new page or a new route in our application where the component is no longer rendered.
+- When a component is unmounted, our cleanup function runs, our interval is cleared, and we no longer get an error of attempting to update a state variable that doesn't exist.
+- Finally, the side effect cleanup is not required in every case. It is only required in a few cases, such as when you need to stop a repeated side effect when your component unmounts.
  
 
