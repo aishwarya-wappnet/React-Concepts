@@ -5,6 +5,9 @@ import State from './State';
 import Clock from './Clock';
 import Events from './Events';
 import Form from './Form';
+import UseEffect from './UseEffect';
+import UseEffect2 from './UseEffect2';
+import Test from './Test';
 
 // const studentData = [
 //   { id: 1, name: "Aishwarya", degree: "BE"},
@@ -28,6 +31,9 @@ function App() {
       <Clock />
       <Events />
       <Form />
+      <UseEffect />
+      <UseEffect2/>
+      <Test />
     </div>
   );
 }
