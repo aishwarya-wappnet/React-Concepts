@@ -117,4 +117,11 @@ useEffect(() => {
 - When a component is unmounted, our cleanup function runs, our interval is cleared, and we no longer get an error of attempting to update a state variable that doesn't exist.
 - Finally, the side effect cleanup is not required in every case. It is only required in a few cases, such as when you need to stop a repeated side effect when your component unmounts.
  
+ ## Custom hooks
+ 
+- Hooks are reusable functions.
+- When you have a component logic that needs to be used by multiple components, we can extract that logic to a custom hook.
+- Custom Hooks start with "use". Example useTitleCount.
+- We have created a new file called useTitleCount.js containing a function called useTitleCount which contains a useEffect hook displaying the updated document title on button click.
+- In Test.js, we are importing the useTitleCount Hook and utilizing it like any other hook.
 
