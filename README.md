@@ -21,6 +21,8 @@ A hook is a special function that lets you "hook into" React features.
 
 ## useState()
 
+In React, the state is data or properties you can use in our application. States are mutable, meaning their value can change, and for that, the useState() hook is used to handle and manage your states.
+
 The react useState hook allows us to track state in a function component. State generally refers to to data or properties that need to be tracking in an application. The useState Hook can be used to keep track of strings, numbers, booleans, arrays, objects, and any combination of these!
 
 The useState() hook return an array containing two values. The initial state and the function. You pass the initial state to this function and it returns a variable with the current state value (not necessarily the initial state) and another function to update this value.
